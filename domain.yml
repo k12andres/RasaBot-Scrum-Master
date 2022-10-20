@@ -1,0 +1,74 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - saludo_empleado
+  - despedida_empleado
+  - ver_perfil
+  - pedir_tiempo_tarea
+  - avisa_no_trabaja
+  - porque_no_trabaja
+  - problema_companiero
+  - cambio_horario
+  - mirar_tareas
+  - empleado
+  - pedir_tarea
+  - avisar_tarea_finalizada
+  - motivo_molestia
+
+entities:
+  - empleado
+  - horario
+  - tarea
+  - falta_trabajo
+  - tiempo_prestado
+  - motivo_problema
+
+slots:
+  name:
+    type: text
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: u"\U0001F620"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_pedir_motivo:
+  - text: "¿Cual es el motivo?"
+
+actions:
+  - action_saludo
+  - action_despedida
+  - mostrar_perfil
+  - dar_tiempo
+  - dar_dia
+  - problem_compa
+  - cambiar_horario
+  - mostrar_tareas
+  - asignar_una_tarea
+  - terminar_tarea
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

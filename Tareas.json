@@ -1,0 +1,10 @@
+{
+    "Crear pagina": {
+        "Caracteristicas": "Desarrollar la pagina de la empresa",
+        "Requisito_Lenguajes": [
+            "PHP"
+        ],
+        "Requisito_Calidad": 5,
+        "Semanas_Restantes": 9
+    }
+}

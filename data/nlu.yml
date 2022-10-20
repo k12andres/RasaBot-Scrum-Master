@@ -1,0 +1,119 @@
+version: "2.0"
+
+nlu:
+    
+- lookup: empleado
+  examples: |
+    - Roberto
+    - Maria
+    - Carla
+    - Luis
+
+- regex: empleado
+  examples: |
+    - ((([aA-zZ]\w+ *){1,})+(, )*){1,}
+- intent: saludo_empleado
+  examples: |
+    - hola, soy [Roberto](empleado)
+    - hola, soy [Robert](empleado:Roberto) 
+    - hola, soy [Maria](empleado)
+    - hola, soy [Mari](empleado:Maria)
+    - hola, soy [Carla](empleado)
+    - hola, soy [Luis](empleado)
+
+- intent: despedida_empleado
+  examples: |
+    - nos vemos
+    - chau
+    - andate
+
+- intent: ver_perfil
+  examples: |
+    - quiero ver mi perfil
+    - perfil
+    - mostrame mi perfil
+    - mostrame el perfil
+
+- intent: pedir_tiempo_tarea
+  examples: |
+    - necesito mas tiempo
+    - dame mas tiempo
+    - quiero mas tiempo
+
+- intent: avisa_no_trabaja
+  examples: |
+    - hoy no voy
+    - no podre asistir
+    - no trabajo hoy
+    - hoy no puedo trabajar
+    - hoy falto
+
+- regex: falta_trabajo
+  examples: |
+    - ((([aA-zZ]\w+ *){1,})+(, )*){1,}
+- intent: porque_no_trabaja
+  examples: |
+    - porque [me atropellaron](falta_trabajo)
+    - porque [dia libre](falta_trabajo)
+    - porque [murio conocido](falta_trabajo)
+    - porque [estoy ocupado](falta_trabajo)
+    - porque [quiero](falta_trabajo)
+
+- intent: problema_companiero
+  examples: |
+    - tengo problema con [Roberto](empleado)
+    - tengo problema con [Maria](empleado)
+    - tengo problema con [Carla](empleado)
+    - tengo problema con [Luis](empleado)
+
+#- intent: cantidad_tiempo
+#  examples: |
+ #   - [1-60] dias(tiempo_prestado)
+  #  - [1-60](tiempo_prestado)
+
+- regex: horario
+  examples: |
+    - ((([aA-zZ]\w+ *){1,})+(, )*){1,}
+- intent: cambio_horario
+  examples: |
+    - cambiar horario [maniana](horario)
+    - cambiar horario [tarde](horario)
+    - cambiar horario [noche](horario)
+
+- intent: mirar_tareas
+  examples: |
+    - que tareas hay disponible?
+    - mostrame las tareas
+    - tareas
+    - decime que tareas hay
+
+- regex: tarea
+  examples: |
+    - ((([aA-zZ]\w+ *){1,})+(, )*){1,}
+- intent: pedir_tarea
+  examples: |
+    - Quiero [Programar](tarea)
+    - Quiero [Corregir errores](tarea)
+    - Quiero [Mantenimiento](tarea)
+    - Quiero [Crear pagina](tarea)
+
+- intent: avisar_tarea_finalizada
+  examples: |
+    - termine mi tarea
+    - ya finalize mi tarea
+    - termine el laburo
+    - termine
+    - te entrego la tarea
+
+- regex: motivo_problema
+  examples: |
+    - ((([aA-zZ]\w+ *){1,})+(, )*){1,}
+- intent: motivo_molestia
+  examples: |
+    - porque no [trabaja](motivo_problema)
+    - porque es [molesto](motivo_problema)
+    - porque tiene [bigote](motivo_problema)
+    - porque me [roba](motivo_problema)
+    - porque deja todo para [ultimo momento](motivo_problema)
+    - tiene [mal olor](motivo_problema)
+    - escucha [arjona](motivo_problema)

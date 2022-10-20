@@ -1,0 +1,94 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: sistema_empleado
+  steps:
+  - intent: saludo_empleado
+  - action: action_saludo
+  - checkpoint: flujo_conversacion
+
+- story: pedir_tiempo
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: pedir_tiempo_tarea
+  - action: dar_tiempo
+
+- story: pedir_dia
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: avisa_no_trabaja
+  - action: utter_pedir_motivo
+  - intent: porque_no_trabaja
+  - action: dar_dia
+ 
+- story: pedir_perfil
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: ver_perfil
+  - action: mostrar_perfil
+
+- story: adios
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: despedida_empleado
+  - action: action_despedida
+
+- story: problema_compa
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: problema_companiero
+  - action: utter_pedir_motivo
+  - intent: motivo_molestia
+  - action: problem_compa
+
+- story: cambio_horario
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: cambio_horario
+  - action: cambiar_horario
+
+- story: presentar_tareas
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: mirar_tareas
+  - action: mostrar_tareas
+
+- story: asignar_tareas
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: pedir_tarea
+  - action: asignar_una_tarea
+
+- story: terminar_tareas
+  steps:
+  - checkpoint: flujo_conversacion
+  - intent: avisar_tarea_finalizada
+  - action: terminar_tarea
